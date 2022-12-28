@@ -1,7 +1,7 @@
-import { v4 as uuidv4 } from "uuid";
+// DTOS
+import { BaseDTO } from "./base.dto";
 
-export class EducationFormDTO {
-	id: string = uuidv4();
+export class EducationFormDTO extends BaseDTO {
 	school: string = "";
 	schoolStartDate: string = "";
 	schoolEndDate: string = "";

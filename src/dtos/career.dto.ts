@@ -1,7 +1,7 @@
-import { v4 as uuidv4 } from "uuid";
+// DTOS
+import { BaseDTO } from "./base.dto";
 
-export class CareerDTO {
-	id: string = uuidv4();
+export class CareerDTO extends BaseDTO {
 	jobTitle: string = "";
 	company: string = "";
 	startDate: string = "";

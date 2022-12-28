@@ -1,7 +1,7 @@
-import { v4 as uuidv4 } from "uuid";
+// DTOS
+import { BaseDTO } from "./base.dto";
 
-export class ProjectDTO {
-	id: string = uuidv4();
+export class ProjectDTO extends BaseDTO {
 	name: string = "";
 	link: string = "";
 	description: string = "";

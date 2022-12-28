@@ -1,6 +1,6 @@
-import { v4 as uuidv4 } from "uuid";
+// DTOS
+import { BaseDTO } from "./base.dto";
 
-export class SkillDTO {
-	id: string = uuidv4();
+export class SkillDTO extends BaseDTO {
 	name: string = "";
 }
