@@ -1,26 +1,40 @@
-import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
+
+// CONTEXTS
+import { useCv } from "../../contexts/cv.context";
 
 // DTOS
 import { EducationFormDTO } from "../../dtos/education.dto";
 
+// INTERFACES
+import { CVInterface } from "../../interfaces/cv.interface";
+
 // COMPONENTS
-import { EducationForm } from "../education-form/education-form";
+import { EducationForm } from "./education-form/education-form";
 
 const Education: React.FC = () => {
-	const [educations, setEducations] = useState<EducationFormDTO[]>([
-		new EducationFormDTO(),
-	]);
+	const {
+		cv: { educations },
+		onCvChange,
+	} = useCv();
 
 	const handleAddNewEducation = () => {
-		setEducations((prev) => prev.concat(new EducationFormDTO()));
+		onCvChange(({ educations, ...prev }) => {
+			return {
+				...prev,
+				educations: educations.concat(new EducationFormDTO()),
+			};
+		});
 	};
 
 	const handleDeleteEducation = (educationId: string) => {
-		setEducations((prev) => prev.filter((e) => e.id !== educationId));
+		onCvChange(({ educations, ...prev }) => {
+			return {
+				...prev,
+				educations: educations.filter((e) => e.id !== educationId),
+			};
+		});
 	};
-
-	console.log({ educations });
 
 	return (
 		<div className="flex flex-col">
@@ -28,10 +42,7 @@ const Education: React.FC = () => {
 				<h1 className="uppercase mb-1">Educação</h1>
 				{educations?.map((education, index) => (
 					<div key={education.id + index} className="mt-4">
-						<EducationForm
-							educationFormData={educations[index]}
-							onChange={setEducations}
-						/>
+						<EducationForm educationFormData={educations[index]} />
 
 						{index > 0 && (
 							<FaTrash

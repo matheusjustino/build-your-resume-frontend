@@ -1,23 +1,31 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
+
+// CONTEXTS
+import { useCv } from "../../../contexts/cv.context";
+
+// DTOS
+import { EducationFormDTO } from "../../../dtos/education.dto";
 
 interface EducationFormProps {
-	educationFormData: EducationForm;
-	onChange: Dispatch<SetStateAction<EducationForm[]>>;
+	educationFormData: EducationFormDTO;
 }
 
-const EducationForm: React.FC<EducationProps> = ({
-	educationFormData,
-	onChange,
-}) => {
+const EducationForm: React.FC<EducationFormProps> = ({ educationFormData }) => {
+	const { onCvChange } = useCv();
+
 	const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-		onChange((prev) => {
-			const educationIndex = prev.findIndex(
+		onCvChange((prev) => {
+			const educationIndex = prev.educations.findIndex(
 				(e) => e.id === educationFormData.id
 			);
 
 			if (educationIndex > -1) {
-				const prevCopy = [...prev];
-				prevCopy[educationIndex][e.target.name] = e.target.value;
+				const prevCopy = { ...prev };
+				const education = prevCopy.educations[educationIndex];
+				prevCopy.educations[educationIndex] = {
+					...education,
+					[e.target.name]: e.target.value,
+				};
 				return prevCopy;
 			}
 
