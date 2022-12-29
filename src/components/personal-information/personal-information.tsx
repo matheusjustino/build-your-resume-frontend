@@ -25,7 +25,7 @@ const PersonalInformation: React.FC = () => {
 		<div className="flex flex-col w-full">
 			<h1 className="uppercase mb-1">Informações Pessoais</h1>
 			<div className="flex flex-col gap-2 border p-2">
-				<div className="grid grid-cols-2 gap-2">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
 					<input
 						type="text"
 						name="name"

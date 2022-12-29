@@ -38,7 +38,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ careerFormData }) => {
 	return (
 		<div className="flex flex-col w-full gap-2 border p-2">
 			<div className="flex flex-col gap-2">
-				<div className="grid grid-cols-3 gap-2">
+				<div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
 					<input
 						type="text"
 						name="jobTitle"

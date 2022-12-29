@@ -37,7 +37,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectFormData }) => {
 
 	return (
 		<div className="flex flex-col w-full gap-2 border p-2">
-			<div className="grid grid-cols-2 gap-2">
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
 				<input
 					type="text"
 					name="name"
