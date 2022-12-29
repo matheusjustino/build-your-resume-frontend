@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 // DTOS
 import { ProjectDTO } from "../../../../dtos/project.dto";
 
@@ -11,7 +13,9 @@ interface ProjectFormProps {
 const ProjectForm: React.FC<ProjectFormProps> = ({ projectFormData }) => {
 	const { onCvChange } = useCv();
 
-	const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+	const handleOnChange = (
+		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
 		onCvChange((prev) => {
 			const projectIndex = prev.projects.findIndex(
 				(e) => e.id === projectFormData.id

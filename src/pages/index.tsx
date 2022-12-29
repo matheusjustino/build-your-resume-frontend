@@ -6,7 +6,7 @@ import { CVForm } from "../components/cv-form/cv-form";
 import { CVPreview } from "../components/cv-preview/cv-preview";
 
 export default function Home() {
-	const previewRef = useRef<HTMLElement>();
+	const previewRef = useRef<HTMLIFrameElement>(null);
 	const handlePrint = useReactToPrint({
 		content: () => previewRef?.current,
 	});

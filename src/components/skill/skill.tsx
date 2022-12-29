@@ -53,7 +53,6 @@ const Skill: React.FC = () => {
 									<span
 										key={skill.id + index}
 										className="ml-2 mr-1 leading-relaxed truncate max-w-xs px-1"
-										xtext="skill"
 									>
 										{skill.name}
 									</span>
@@ -61,7 +60,7 @@ const Skill: React.FC = () => {
 										onClick={() =>
 											handleDeleteSkill(skill.id)
 										}
-										className="w-6 h-8 inline-block align-middle text-gray-500 bg-blue-200 focus:outline-none"
+										className="w-6 h-8 inline-block align-middle text-white bg-red-400 hover:bg-red-500 focus:outline-none"
 									>
 										<svg className="w-6 h-6 fill-current mx-auto">
 											<path

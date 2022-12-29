@@ -1,10 +1,9 @@
-import "./cv-preview.module.scss";
 import { forwardRef, Fragment } from "react";
 
 // CONTEXTS
 import { useCv } from "../../contexts/cv.context";
 
-const CVPreview = forwardRef((props, ref) => {
+const CVPreview = forwardRef<any>((props, ref) => {
 	const { cv } = useCv();
 
 	const hasPersonalInformation =

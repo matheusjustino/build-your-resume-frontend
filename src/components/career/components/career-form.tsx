@@ -13,7 +13,9 @@ interface CareerFormProps {
 const CareerForm: React.FC<CareerFormProps> = ({ careerFormData }) => {
 	const { onCvChange } = useCv();
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+	const handleChange = (
+		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
 		onCvChange((prev) => {
 			const careerIndex = prev.career.findIndex(
 				(c) => c.id === careerFormData.id

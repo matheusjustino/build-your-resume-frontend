@@ -20,3 +20,9 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+
+@media print {
+	#printCV {
+		margin: 0px;
+	}
+}
