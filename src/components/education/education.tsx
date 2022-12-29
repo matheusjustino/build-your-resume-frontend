@@ -10,7 +10,7 @@ import { EducationFormDTO } from "../../dtos/education.dto";
 import { CVInterface } from "../../interfaces/cv.interface";
 
 // COMPONENTS
-import { EducationForm } from "./education-form/education-form";
+import { EducationForm } from "./components/education-form/education-form";
 
 const Education: React.FC = () => {
 	const {

@@ -1,10 +1,10 @@
 import { ChangeEvent } from "react";
 
 // CONTEXTS
-import { useCv } from "../../../contexts/cv.context";
+import { useCv } from "../../../../contexts/cv.context";
 
 // DTOS
-import { EducationFormDTO } from "../../../dtos/education.dto";
+import { EducationFormDTO } from "../../../../dtos/education.dto";
 
 interface EducationFormProps {
 	educationFormData: EducationFormDTO;
