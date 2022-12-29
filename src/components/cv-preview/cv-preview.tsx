@@ -1,18 +1,19 @@
 import { forwardRef, Fragment } from "react";
+import dayjs from "dayjs";
 
 // CONTEXTS
 import { useCv } from "../../contexts/cv.context";
 
 const CVPreview = forwardRef<any>((props, ref) => {
-	const { cv } = useCv();
-
-	const hasPersonalInformation =
-		cv.personalInformation.name ||
-		cv.personalInformation.email ||
-		cv.personalInformation.phone ||
-		cv.personalInformation.website;
-
-	const hasAboutMe = cv.personalInformation.about;
+	const {
+		cv,
+		hasPersonalInformation,
+		hasAboutMe,
+		hasEducations,
+		hasCareer,
+		hasProjects,
+		hasSkills,
+	} = useCv();
 
 	return (
 		<div
@@ -61,6 +62,131 @@ const CVPreview = forwardRef<any>((props, ref) => {
 					<span className="break-all">
 						{cv.personalInformation.about}
 					</span>
+				</div>
+			)}
+
+			{hasEducations && (
+				<div className="flex flex-col gap-4 p-2">
+					<h1 className="text-2xl font-semibold uppercase">
+						Formação
+					</h1>
+
+					{cv.educations.map((education, index) => (
+						<div
+							key={education.id + index}
+							className="flex flex-col gap-2 text-sm"
+						>
+							<div className="flex items-center justify-between text-sm">
+								<span>
+									{[
+										education.school,
+										education.areaOfStudy,
+										education.grade,
+									]
+										.filter(Boolean)
+										.join(" - ")}
+								</span>
+								<span className="italic text-sm">
+									{dayjs(education.schoolStartDate).format(
+										"DD MMM YYYY"
+									)}{" "}
+									-{" "}
+									{education.schoolEndDate.length > 0
+										? dayjs(education.schoolEndDate).format(
+												"DD MMM YYYY"
+										  )
+										: "Presente"}
+								</span>
+							</div>
+						</div>
+					))}
+				</div>
+			)}
+
+			{hasCareer && (
+				<div className="flex flex-col gap-4 p-2">
+					<h1 className="text-2xl font-semibold uppercase">
+						Experiência
+					</h1>
+
+					{cv.career.map((career, index) => (
+						<div
+							key={career.id + index}
+							className="flex flex-col gap-2 text-sm"
+						>
+							<div className="flex items-center justify-between text-sm">
+								<span>
+									{[career.company, career.jobTitle]
+										.filter(Boolean)
+										.join(" - ")}
+								</span>
+
+								{career.startDate.length > 0 && (
+									<span className="italic text-sm">
+										{dayjs(career.startDate).format(
+											"DD MMM YYYY"
+										)}{" "}
+										-{" "}
+										{career.endDate.length > 0
+											? dayjs(career.endDate).format(
+													"DD MMM YYYY"
+											  )
+											: "Presente"}
+									</span>
+								)}
+							</div>
+
+							{career.overview?.length > 0 && (
+								<span>{career.overview}</span>
+							)}
+						</div>
+					))}
+				</div>
+			)}
+
+			{hasProjects && (
+				<div className="flex flex-col gap-4 p-2">
+					<h1 className="text-2xl font-semibold uppercase">
+						Projetos
+					</h1>
+
+					{cv.projects.map((project, index) => (
+						<div
+							key={project.id + index}
+							className="flex flex-col gap-2 text-sm"
+						>
+							<div className="flex items-center justify-between text-sm">
+								<span>
+									{[project.name, project.link]
+										.filter(Boolean)
+										.join(" - ")}
+								</span>
+							</div>
+
+							{project.description.length > 0 && (
+								<span>{project.description}</span>
+							)}
+						</div>
+					))}
+				</div>
+			)}
+
+			{hasSkills && (
+				<div className="flex flex-col gap-4 p-2">
+					<h1 className="text-2xl font-semibold uppercase">
+						Projetos
+					</h1>
+
+					<div className="flex flex-wrap gap-4">
+						{cv.skills.map((skill, index) => (
+							<span
+								key={skill.id + index}
+								className="py-1 px-2 bg-blue-300 rounded-full"
+							>
+								{skill.name}
+							</span>
+						))}
+					</div>
 				</div>
 			)}
 		</div>

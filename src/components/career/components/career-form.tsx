@@ -69,7 +69,7 @@ const CareerForm: React.FC<CareerFormProps> = ({ careerFormData }) => {
 					/>
 				</div>
 				<textarea
-					name="about"
+					name="overview"
 					rows={4}
 					placeholder="Descreva sua atuação"
 					value={careerFormData.overview}

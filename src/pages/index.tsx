@@ -14,7 +14,7 @@ export default function Home() {
 	return (
 		<div className="flex flex-col bg-slate-200 w-full min-h-[100vh] p-8">
 			<div className="flex text-center items-center justify-between p-2 gap-4">
-				<h1 className="text-4xl font-semibold uppercase">
+				<h1 className="text-xl md:text-4xl font-semibold uppercase">
 					Construa seu currículo
 				</h1>
 				<button
@@ -27,7 +27,7 @@ export default function Home() {
 
 			<div className="h-[1px] w-full bg-blue-400"></div>
 
-			<div className="flex gap-4 w-full">
+			<div className="flex md:flex-row flex-col gap-4 w-full">
 				<CVForm />
 				<CVPreview ref={previewRef} />
 			</div>

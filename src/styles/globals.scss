@@ -21,6 +21,12 @@ a {
 	text-decoration: none;
 }
 
+#content {
+	@media print {
+		display: "block";
+	}
+}
+
 @media print {
 	#printCV {
 		margin: 0px;
