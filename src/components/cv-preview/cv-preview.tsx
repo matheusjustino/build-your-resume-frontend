@@ -136,7 +136,7 @@ const CVPreview = forwardRef<any>((props, ref) => {
 								)}
 							</div>
 
-							{career.overview?.length > 0 && (
+							{career.overview && career.overview.length > 0 && (
 								<span>{career.overview}</span>
 							)}
 						</div>

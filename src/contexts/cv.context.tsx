@@ -70,7 +70,8 @@ export const CVProvider: React.FC<CVProviderProps> = ({ children }) => {
 			cvForm.career[0].company.length > 0 ||
 			cvForm.career[0].endDate.length > 0 ||
 			cvForm.career[0].jobTitle.length > 0 ||
-			cvForm.career[0].overview?.length > 0 ||
+			(cvForm.career[0].overview &&
+				cvForm.career[0].overview.length > 0) ||
 			cvForm.career[0].startDate.length > 0;
 
 		const projects =
