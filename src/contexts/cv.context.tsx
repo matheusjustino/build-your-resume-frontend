@@ -33,7 +33,7 @@ export const CVProvider: React.FC<CVProviderProps> = ({ children }) => {
 		educations: [new EducationFormDTO()],
 		career: [new CareerDTO()],
 		projects: [new ProjectDTO()],
-		skills: [new SkillDTO()],
+		skills: [],
 	});
 
 	const cvContextData: CVContextData = {
